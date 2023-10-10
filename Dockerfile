@@ -1,8 +1,5 @@
 FROM gradle:7.1.0-jdk11
 
-# Set the working directory in the container
-WORKDIR /app
-
 # Copy the Gradle build files (build.gradle, settings.gradle) and the source code into the container
 COPY build.gradle .
 COPY settings.gradle .
@@ -15,4 +12,4 @@ RUN gradle build
 EXPOSE 8080
 
 # Run the Spring Boot application
-CMD ["java", "-jar", "build/libs/google-search-scrape-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/home/gradle/build/libs/google-search-scrape-1.0-SNAPSHOT.jar"]
