@@ -1,22 +1,27 @@
 plugins {
-    id 'java'
+    id 'org.springframework.boot' version '2.5.4' // Use the version matching your Spring Boot version
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' // Optional for dependency management
 }
+
+apply plugin: 'java'
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.16'
     implementation "org.jsoup:jsoup:1.14.3"
 }
 
+springBoot {
+    mainClass = 'SearchApplication' // Replace with your application's main class
+}
 
 
 test {
